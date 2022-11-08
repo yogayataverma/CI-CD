@@ -1,0 +1,47 @@
+pipeline {
+         agent any
+         stages {
+         stage('Compile') {
+             steps {
+                     echo "Compiled Successfully!!!!!";
+                   }
+                   }
+                   
+          stage('JUnit') {
+          steps {
+                 echo"JUnit Passed Successfully!!!!";
+           }}
+ 
+           stage('Quality-Gate') {
+          steps {
+                 echo"Quality Gate Passed Successfully!!!!";
+           }}
+
+
+           stage('Deploy') {
+          steps {
+                 echo"Passed Successfully!!!!";
+           }}
+
+              
+    post {
+
+always { 
+        echo 'This will always run'
+        }
+success { 
+        echo 'This will run on success'
+        }
+failure { 
+        echo 'This will run on failure'
+        }
+unstable { 
+        echo 'This will run on being unstable'
+        }
+changed { 
+        echo 'This will run on being changed'
+        }
+}
+
+ }
+    }
